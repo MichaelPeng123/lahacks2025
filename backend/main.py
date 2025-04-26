@@ -19,10 +19,47 @@ app.include_router(webhooks.router, prefix="/webhooks", tags=["webhooks"])
 async def startup_event():
     print("server started")
     print(f"Webhook route available at: /webhooks/github")
+    print(f"Debug webhook route available at: /webhooks/github-debug")
+    print("\nTIP: For debugging GitHub webhooks, you can also use:")
+    print("- https://webhook.site (captures and displays webhook requests)")
+    print("- https://pipedream.com (request inspection and debugging)")
+    print("- https://requestbin.com (inspects incoming HTTP requests)")
 
 @app.get("/")
 async def root():
     return {"message": "Welcome to Ownership AI API"}
+
+@app.get("/debug-info")
+async def debug_info():
+    """Provides information about debugging webhook issues."""
+    return {
+        "message": "GitHub webhook debugging information",
+        "webhook_endpoints": {
+            "main": "/webhooks/github",
+            "debug": "/webhooks/github-debug"
+        },
+        "github_settings": {
+            "content_type": "application/json",
+            "events_to_select": ["Push", "Pull requests"]
+        },
+        "third_party_tools": [
+            {
+                "name": "webhook.site",
+                "description": "Free webhook inspection service",
+                "url": "https://webhook.site"
+            },
+            {
+                "name": "Pipedream",
+                "description": "Request inspection and debugging",
+                "url": "https://pipedream.com"
+            },
+            {
+                "name": "RequestBin",
+                "description": "Inspects incoming HTTP requests",
+                "url": "https://requestbin.com"
+            }
+        ]
+    }
 
 @app.get("/test-webhook")
 async def test_webhook_manually():

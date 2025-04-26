@@ -10,6 +10,31 @@ from backend.config import settings
 
 router = APIRouter()
 
+@router.post("/github-debug")
+async def github_webhook_debug(request: Request):
+    """Debug endpoint to log all webhook details without verification."""
+    print("\n============ WEBHOOK DEBUG RECEIVED ============")
+    
+    # Log all headers
+    print("=== HEADERS ===")
+    for name, value in request.headers.items():
+        print(f"{name}: {value}")
+    
+    # Log the raw body
+    body = await request.body()
+    print("\n=== RAW BODY ===")
+    print(body)
+    
+    # Try to parse as JSON
+    try:
+        payload = json.loads(body)
+        print("\n=== JSON PAYLOAD ===")
+        print(json.dumps(payload, indent=2))
+    except:
+        print("Not a valid JSON payload")
+    
+    return {"status": "debug", "message": "Webhook details logged"}
+
 async def verify_github_signature(request: Request, x_hub_signature_256: Optional[str] = Header(None)):
     """Verify that the webhook request came from GitHub using the webhook secret."""
     if not x_hub_signature_256:
@@ -41,6 +66,10 @@ async def github_webhook(request: Request, payload_body: bytes = Depends(verify_
     
     # Parse JSON payload
     payload = json.loads(payload_body)
+    
+    # Debug: Log full payload for troubleshooting
+    print("\n=== FULL PAYLOAD ===")
+    print(json.dumps(payload, indent=2)[:1000] + "..." if len(json.dumps(payload)) > 1000 else json.dumps(payload, indent=2))
     
     # Handle different event types
     if github_event == "push":
