@@ -370,6 +370,17 @@
       "authorId": "user-32288183",
       "repositoryId": "repo-CollinQ-sbhacks2025",
       "authorLogin": "MichaelPeng123"
+    },
+    {
+      "id": "2484161891",
+      "number": 31,
+      "title": "Feat/frontend",
+      "body": null,
+      "state": "closed",
+      "createdAt": "2025-04-27T11:03:17Z",
+      "authorId": "user-125724364",
+      "repositoryId": "repo-MichaelPeng123-lahacks2025",
+      "authorLogin": "Yatsz"
     }
   ],
   "issues": [
