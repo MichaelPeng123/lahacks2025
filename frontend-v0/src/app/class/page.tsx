@@ -9,7 +9,7 @@ const mockClasses = [
     id: 1,
     code: 'CS101',
     title: 'Introduction to Computer Science',
-    instructor: 'Dr. Jane Smith',
+    instructor: 'Dr. Jane Bob',
     schedule: 'Mon, Wed, Fri 10:00 AM - 11:30 AM',
     status: 'In Progress',
   },

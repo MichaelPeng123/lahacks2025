@@ -1,0 +1,261 @@
+{
+    "users": [
+      {
+        "id": "user-1",
+        "githubLogin": "sarah-dev",
+        "slackId": "U01234ABC",
+        "name": "Sarah Johnson",
+        "email": "sarah@example.com"
+      },
+      {
+        "id": "user-2",
+        "githubLogin": "alex-coder",
+        "slackId": "U02345BCD",
+        "name": "Alex Rodriguez",
+        "email": "alex@example.com"
+      },
+      {
+        "id": "user-3",
+        "githubLogin": "taylor-eng",
+        "slackId": "U03456CDE",
+        "name": "Taylor Smith",
+        "email": "taylor@example.com"
+      },
+      {
+        "id": "user-4",
+        "githubLogin": "jamie-qa",
+        "slackId": "U04567DEF",
+        "name": "Jamie Wilson",
+        "email": "jamie@example.com"
+      },
+      {
+        "id": "user-5",
+        "githubLogin": "morgan-devops",
+        "slackId": "U05678EFG",
+        "name": "Morgan Lee",
+        "email": "morgan@example.com"
+      }
+    ],
+    "repositories": [
+      {
+        "id": "repo-1",
+        "name": "user-service",
+        "fullName": "acme/user-service",
+        "description": "Microservice for user authentication and management"
+      },
+      {
+        "id": "repo-2",
+        "name": "payment-gateway",
+        "fullName": "acme/payment-gateway",
+        "description": "Payment processing service with support for multiple providers"
+      }
+    ],
+    "pullRequests": [
+      {
+        "id": "pr-1",
+        "number": 42,
+        "title": "Add OAuth2 integration",
+        "body": "This PR adds OAuth2 integration with Google and GitHub providers. It includes new API endpoints for authentication flow and updates to the user model to store OAuth tokens.\n\nRelated to #28 and fixes #15.",
+        "state": "open",
+        "createdAt": "2023-04-10T09:15:00Z",
+        "authorId": "user-1",
+        "repositoryId": "repo-1"
+      },
+      {
+        "id": "pr-2",
+        "number": 43,
+        "title": "Update user profile endpoints",
+        "body": "Refactors the user profile API endpoints to support the new OAuth providers. Adds missing fields and validation for profile updates.",
+        "state": "open",
+        "createdAt": "2023-04-12T14:30:00Z",
+        "authorId": "user-3",
+        "repositoryId": "repo-1"
+      },
+      {
+        "id": "pr-3",
+        "number": 67,
+        "title": "Add Stripe payment processor",
+        "body": "Implements Stripe as a payment processor option with support for credit cards, ACH, and international payments. Includes webhook handling for payment events.",
+        "state": "merged",
+        "createdAt": "2023-04-05T10:20:00Z",
+        "authorId": "user-2",
+        "repositoryId": "repo-2"
+      }
+    ],
+    "issues": [
+      {
+        "id": "issue-1",
+        "number": 15,
+        "title": "Implement OAuth2 authentication",
+        "body": "We need to implement OAuth2 authentication to support Google and GitHub login. This should include:\n\n- OAuth2 client setup\n- Login flow\n- Token storage\n- User profile syncing",
+        "state": "closed",
+        "createdAt": "2023-03-25T10:00:00Z",
+        "authorId": "user-2",
+        "repositoryId": "repo-1"
+      },
+      {
+        "id": "issue-2",
+        "number": 28,
+        "title": "User profile doesn't show OAuth linked accounts",
+        "body": "Currently when a user links their account with OAuth providers, this information isn't displayed in their profile settings.",
+        "state": "open",
+        "createdAt": "2023-04-05T16:45:00Z",
+        "authorId": "user-4",
+        "repositoryId": "repo-1"
+      },
+      {
+        "id": "issue-3",
+        "number": 54,
+        "title": "Add support for multiple payment providers",
+        "body": "We need to support multiple payment providers including:\n\n- Stripe\n- PayPal\n- Square\n\nEach provider should have a consistent interface.",
+        "state": "open",
+        "createdAt": "2023-03-20T11:15:00Z",
+        "authorId": "user-5",
+        "repositoryId": "repo-2"
+      }
+    ],
+    "slackChannels": [
+      {
+        "id": "channel-1",
+        "slackId": "C0123ABC",
+        "name": "backend-team",
+        "isPrivate": false
+      },
+      {
+        "id": "channel-2",
+        "slackId": "C0234BCD",
+        "name": "user-service",
+        "isPrivate": false
+      },
+      {
+        "id": "channel-3",
+        "slackId": "C0345CDE",
+        "name": "payment-gateway",
+        "isPrivate": false
+      }
+    ],
+    "slackMessages": [
+      {
+        "id": "message-1",
+        "slackId": "1650123456.123456",
+        "channelId": "channel-2",
+        "text": "I just opened PR #42 to add OAuth integration: https://github.com/acme/user-service/pull/42",
+        "threadTs": null,
+        "createdAt": "2023-04-10T09:30:00Z",
+        "authorId": "user-1"
+      },
+      {
+        "id": "message-2",
+        "slackId": "1650123789.123457",
+        "channelId": "channel-2",
+        "text": "Nice, that will fix the issue with the missing OAuth providers. Have you tested with both Google and GitHub?",
+        "threadTs": "1650123456.123456",
+        "createdAt": "2023-04-10T09:35:00Z",
+        "authorId": "user-2"
+      },
+      {
+        "id": "message-3",
+        "slackId": "1650124000.123458",
+        "channelId": "channel-2",
+        "text": "Yes, I've tested with both providers. The Google flow is working great, but GitHub is returning some extra profile fields we should probably store.",
+        "threadTs": "1650123456.123456",
+        "createdAt": "2023-04-10T09:38:00Z",
+        "authorId": "user-1"
+      },
+      {
+        "id": "message-4",
+        "slackId": "1650150000.123459",
+        "channelId": "channel-2",
+        "text": "@taylor-eng I'm working on the OAuth PR (#42). Could you look at my approach for storing the tokens? Not sure if we should encrypt them or just hash them.",
+        "threadTs": null,
+        "createdAt": "2023-04-10T16:45:00Z",
+        "authorId": "user-1"
+      },
+      {
+        "id": "message-5",
+        "slackId": "1650151000.123460",
+        "channelId": "channel-2",
+        "text": "We should definitely encrypt them, not just hash. I'll add some comments to the PR.",
+        "threadTs": "1650150000.123459",
+        "createdAt": "2023-04-10T17:00:00Z",
+        "authorId": "user-3"
+      },
+      {
+        "id": "message-6",
+        "slackId": "1650240000.123461",
+        "channelId": "channel-1",
+        "text": "Heads up team, PR #43 is ready for review. It builds on the OAuth work @sarah-dev is doing in PR #42.",
+        "threadTs": null,
+        "createdAt": "2023-04-11T14:35:00Z",
+        "authorId": "user-3"
+      },
+      {
+        "id": "message-7",
+        "slackId": "1650240500.123462",
+        "channelId": "channel-1",
+        "text": "Great! This should also address issue #28 about showing linked accounts in the profile.",
+        "threadTs": "1650240000.123461",
+        "createdAt": "2023-04-11T14:40:00Z", 
+        "authorId": "user-4"
+      },
+      {
+        "id": "message-8",
+        "slackId": "1650000000.123463",
+        "channelId": "channel-3",
+        "text": "Just merged PR #67 adding Stripe integration to the payment gateway. You can now process credit card payments.",
+        "threadTs": null,
+        "createdAt": "2023-04-08T10:30:00Z",
+        "authorId": "user-2"
+      },
+      {
+        "id": "message-9",
+        "slackId": "1650001000.123464",
+        "channelId": "channel-3",
+        "text": "Awesome! This is the first step in addressing issue #54 for supporting multiple payment providers.",
+        "threadTs": "1650000000.123463",
+        "createdAt": "2023-04-08T10:45:00Z",
+        "authorId": "user-5"
+      },
+      {
+        "id": "message-10",
+        "slackId": "1650002000.123465",
+        "channelId": "channel-3",
+        "text": "Next we should work on PayPal integration. I can start on that next week.",
+        "threadTs": "1650000000.123463",
+        "createdAt": "2023-04-08T11:00:00Z",
+        "authorId": "user-2"
+      }
+    ],
+    "textChunks": [
+      {
+        "id": "chunk-1",
+        "sourceId": "pr-1",
+        "sourceType": "PullRequest",
+        "content": "This PR adds OAuth2 integration with Google and GitHub providers. It includes new API endpoints for authentication flow and updates to the user model to store OAuth tokens."
+      },
+      {
+        "id": "chunk-2",
+        "sourceId": "pr-1",
+        "sourceType": "PullRequest",
+        "content": "Related to #28 and fixes #15."
+      },
+      {
+        "id": "chunk-3",
+        "sourceId": "issue-1",
+        "sourceType": "Issue",
+        "content": "We need to implement OAuth2 authentication to support Google and GitHub login. This should include: OAuth2 client setup, Login flow, Token storage, User profile syncing"
+      },
+      {
+        "id": "chunk-4",
+        "sourceId": "message-1",
+        "sourceType": "SlackMessage",
+        "content": "I just opened PR #42 to add OAuth integration: https://github.com/acme/user-service/pull/42"
+      },
+      {
+        "id": "chunk-5",
+        "sourceId": "message-4",
+        "sourceType": "SlackMessage",
+        "content": "@taylor-eng I'm working on the OAuth PR (#42). Could you look at my approach for storing the tokens? Not sure if we should encrypt them or just hash them."
+      }
+    ]
+  }
