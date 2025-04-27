@@ -1,18 +1,19 @@
 # API Framework
 fastapi==0.103.1
 uvicorn==0.23.2
-pydantic==2.6.3
+pydantic>=2.4.2
 pydantic-settings==2.0.0
 python-dotenv>=1.0.0
 
 # Database
 sentence-transformers==2.2.2
 huggingface_hub==0.10.0
-transformers==4.18.0
+transformers>=4.18.0  # Flexible versioning to avoid conflicts
 neo4j==5.24.0
 numpy==1.24.3
 
-
+# Pre-built packages to avoid compilation
+tokenizers==0.13.3  # Added explicitly to avoid compilation issues
 
 # Embeddings
 # Alternative:
@@ -41,3 +42,5 @@ slack-sdk>=3.26.1  # For Slack API integration
 pyngrok>=7.0.0  # For exposing local server to the internet
 
 neo4j-graphrag
+
+uagents

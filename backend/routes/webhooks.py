@@ -5,8 +5,8 @@ import hashlib
 import json
 import os
 from typing import Optional
-from backend.services.github_processor import GitHubProcessor
-from backend.config import settings
+from services.github_processor import GitHubProcessor
+from config import settings
 from uagents import Context
 
 router = APIRouter()

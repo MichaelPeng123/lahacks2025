@@ -11,11 +11,11 @@ import asyncio
 import threading
 from typing import Optional, List, Dict
 from fastapi.middleware.cors import CORSMiddleware
-from backend.routes import webhooks
-from backend.config import settings
-from backend.services.github_service import process_push_event
-from backend.slack_monitor import slack_monitor, start_monitor
-from backend.processTools.rag import query_rag
+from routes import webhooks
+from config import settings
+from services.github_service import process_push_event
+from slack_monitor import slack_monitor, start_monitor
+from processTools.rag import query_rag
 
 app = FastAPI()
 
